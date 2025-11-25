@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+.overlay-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(var(--theme), 0.3);
+  z-index: 1040;
+}
+
+.overlay-bg.show {
+  display: block;
+}
+
+[css-data="wrapper"] {
+  position: relative;
+  width: 100%;
+}
+
+[css-data="leftSide"],
+[css-data="rightSide"] {
+  display: flex;
+  flex-direction: column;
+}
+
+[css-data="leftSide"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  transition: left 0.3s ease;
+  z-index: 1050;
+  /* box-shadow: 2px 0 5px rgba(var(--theme), 1); */
+}
+
+[css-data="leftSide"].collapsed {
+  left: -300px;
+}
+
+[css-data="rightSide"] {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: calc(100% - 300px);
+  height: 100vh;
+  transition: left 0.3s ease, width 0.3s ease, filter 0.3s ease;
+  z-index: 50;
+}
+
+[css-data="rightSide"].expanded {
+  left: 0;
+  width: 100%;
+}
+
+[css-data="rightSide"].blurred {
+  filter: brightness(0.5);
+  pointer-events: none;
+  user-select: none;
+}
+
+[css-data="fixHead"] {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 1280px) {
+  [css-data="leftSide"] {
+    position: fixed;
+    left: -300px;
+    z-index: 1050;
+    /* box-shadow: 2px 0 10px rgba(var(--theme), 0.8); */
+  }
+
+  [css-data="leftSide"].show-mobile {
+    left: 0;
+  }
+
+  [css-data="rightSide"] {
+    position: relative !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh;
+    z-index: 100;
+  }
+
+  [css-data="rightSide"].blurred {
+    filter: brightness(0.5);
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/*---- JW Layouts CSS ----*/
+.jww-Pages {
+  position: relative;
+  border: 1px dashed rgba(var(--white), 1);
+}
+
+.jww-Layouts {
+  position: relative;
+  border: 1px dashed rgba(var(--theme), 1);
+}
+
+.jww-Inners {
+  position: relative;
+  border: 1px dashed rgba(var(--red), 1);
+}
+
+.jww-Sections {
+  position: relative;
+  border: 1px dashed rgba(var(--green), 1);
+}
+
+.jww-Contents {
+  position: relative;
+  border: 1px dashed rgba(var(--white), 0.2);
+}
+
+.jww-Data {
+  position: relative;
+  border: 1px dashed rgba(var(--yellow), 1);
+}
+
+/* JWW ICONS */
+.jww-icons {
+  margin: 2px;
+  padding: 2px 5px;
+}
+.jww-notify {
+  padding: 0px 5px;
+  font-size: 9px;
+  list-style: 9px;
+}
+/* JWW eTools */
+[etool-expand],
+[etool-hover-expand],
+[etool-items-expand] {
+  display: none;
+  position: absolute;
+  width: 100%;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.15); */
+  z-index: 999;
+  white-space: nowrap;
+}
+[etools] {
+  position: relative;
+}
+
+.fix-etools {
+  position: absolute;
+  top: -24px; /* Below the trigger */
+  left: 50%; /* Move starting point to center */
+  transform: translateX(-50%); /* Pull back half its own width */
+  z-index: 998;
+  white-space: nowrap;
+  width: 120px;
+  height: 24px;
+  background-color: rgba(var(--red), 1);
+  color: rgba(var(--white), 1);
+  text-align: center;
+  border-radius: 8px 8px 0px 0px;
+  -moz-border-radius: 8px 8px 0px 0px;
+  -webkit-border-radius: 8px 8px 0px 0px;
+}
+.fix-etools:hover {
+  background-color: rgba(var(--black), 1);
+  color: rgba(var(--theme), 1);
+}
+
+/* Menu Styling */
+[data-function="menu-dropdown"] {
+}
+
+[menu-item] {
+  position: relative;
+  display: inline-block;
+}
+
+[menu-item] a,
+[menu-item] div {
+  text-decoration: none;
+  cursor: pointer;
+  /* Make divs and anchors clickable */
+}
+
+[menu-item] a:hover,
+[menu-item] div:hover {
+}
+
+/* Submenu Styling */
+[data-function="menu-dropdown"] [menu-content="sub"] {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 333px;
+  z-index: 999;
+}
+
+[data-function="menu-dropdown"] [menu-content="sub"] [menu-navi="navi"] {
+  position: absolute;
+  top: -8px;
+  left: 23px;
+  width: 2px;
+  height: 15px;
+  background-color: rgba(var(--theme), 1);
+  z-index: 999;
+}
+
+[data-function="menu-dropdown"] [menu-content="sub"] [menu-item] {
+  display: block;
+}
+
+[data-function="menu-dropdown"] [menu-content="sub"] [menu-item] a,
+[data-function="menu-dropdown"] [menu-content="sub"] [menu-item] div {
+}
+
+[data-function="menu-dropdown"] [menu-content="sub"] [menu-content="sub"] {
+  top: 0;
+  left: 100%;
+}
+
+/* Show Submenu on Hover */
+[data-function="menu-dropdown"]
+  [menu-action="dropdown"]:hover
+  > [menu-content="sub"] {
+  display: block;
+}
+
+[tabs] {
+  cursor: pointer;
+}
+[tabs].active {
+  background-color: rgba(var(--codetext), 1);
+  color: rgba(var(--codebody), 1);
+}
+[contents] {
+  display: none;
+}
+[contents].active {
+  display: block;
+}
+
+/* ตัวหลัก */
+[data-title] {
+  position: relative;
+  cursor: pointer;
+}
+/* Tooltip */
+[data-title]:hover::after {
+  content: attr(data-title); /* ดึงค่าจาก attribute */
+  position: absolute;
+  background: rgba(var(--black), 1);
+  color: rgba(var(--white), 1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  white-space: nowrap;
+  font-weight: normal;
+  font-family: "Prompt-Regular";
+  font-size: 14px;
+  z-index: 99;
+  /* จัดตำแหน่ง tooltip */
+  top: 100%; /* แสดงด้านล่าง */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 3px;
+  opacity: 0;
+  animation: fadeIn 0.2s forwards;
+}
+/* เอฟเฟกต์ fade in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 
+--- TEXT TOOLTIP --- 
+<!-- Image Tooltip -->
+<span tooltips="image" tooltips-url="https://picsum.photos/300/200">
+  Hover me (Image)
+</span>
+<!-- Text Tooltip -->
+<span tooltips="text" tooltips-text="Hello! hover">
+  Hover me (Text)
+</span>
+*/
+/* --- COMMON TOOLTIP STYLE --- */
+[tooltips] {
+  position: relative;
+  cursor: pointer;
+}
+/* --- IMAGE TOOLTIP --- */
+[tooltips="image"]::after {
+  content: "";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+  background-image: var(--tooltip-img);
+}
+
+[tooltips="image"]:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+/* --- TEXT TOOLTIP --- */
+[tooltips="text"]::after {
+  content: attr(tooltips-text);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  background: #333;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+[tooltips="text"]:hover::after {
+  opacity: 1;
+  visibility: visible;
+}

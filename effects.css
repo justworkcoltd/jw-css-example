@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/* EFFECT */
+.eff-container {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 98;
+}
+.eff-background {
+  height: 100px;
+  /* background: rgba(var(--white), 1.00); */
+}
+.effect-curve,
+.effect-curve-white,
+.effect-curve-black,
+.effect-curve-light,
+.effect-curve-dark,
+.effect-curve-gray,
+.effect-curve-theme,
+.effect-curve-master,
+.effect-curve-primary,
+.effect-curve-secondary {
+  position: relative;
+  width: 100% !important;
+  /* border-radius: 50% 50% 0 0; */
+  -webkit-box-shadow: 0px -20px 19px -20px rgba(var(--black), 0.75);
+  -moz-box-shadow: 0px -20px 19px -20px rgba(var(--black), 0.75);
+  box-shadow: 0px -20px 19px -20px rgba(var(--black), 0.75);
+}
+.effect-curve::after,
+.effect-curve-white::after,
+.effect-curve-black::after,
+.effect-curve-light::after,
+.effect-curve-dark::after,
+.effect-curve-gray::after,
+.effect-curve-theme::after,
+.effect-curve-master::after,
+.effect-curve-primary::after,
+.effect-curve-secondary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 2560px solid transparent;
+  border-bottom: 128px solid rgba(var(--white), 1);
+}
+.effect-curve-white::after {
+  border-bottom: 128px solid rgba(var(--white), 1);
+}
+.effect-curve-black::after {
+  border-bottom: 128px solid rgba(var(--black), 1);
+}
+.effect-curve-light::after {
+  border-bottom: 128px solid rgba(var(--light), 1);
+}
+.effect-curve-dark::after {
+  border-bottom: 128px solid rgba(var(--dark), 1);
+}
+.effect-curve-gray::after {
+  border-bottom: 128px solid rgba(var(--gray), 1);
+}
+.effect-curve-theme::after {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-master::after {
+  border-bottom: 128px solid rgba(var(--master), 1);
+}
+.effect-curve-primary::after {
+  border-bottom: 128px solid rgba(var(--primary), 1);
+}
+.effect-curve-secondary::after {
+  border-bottom: 128px solid rgba(var(--secondary), 1);
+}
+.effect-curve::before,
+.effect-curve-white::before,
+.effect-curve-black::before,
+.effect-curve-light::before,
+.effect-curve-dark::before,
+.effect-curve-gray::before,
+.effect-curve-theme::before,
+.effect-curve-theme::before,
+.effect-curve-primary::before,
+.effect-curve-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 1280px solid transparent;
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-white::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-black::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-light::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-dark::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-gray::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-theme::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-master::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-primary::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+.effect-curve-secondary::before {
+  border-bottom: 128px solid rgba(var(--theme), 1);
+}
+
+/* Effects Show/Hide */
+.effectshow {
+  opacity: 1;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in;
+}
+.effecthide {
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in;
+}
+
+/* Hover Effect */
+.hov-effect {
+  border: 1px dashed rgba(var(--codetext), 0);
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in;
+}
+.hov-effect:hover {
+  border: 1px dashed rgba(var(--codetext), 0.55);
+  -webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in;
+}
+
+/* COVER IMAGE BG */
+.cover {
+  background: url(cover/cover.jpg) no-repeat top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.cover-images {
+  background: url(cover/cover-image.jpg) no-repeat top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
